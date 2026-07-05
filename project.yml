@@ -47,6 +47,8 @@ targets:
         INFOPLIST_FILE: Widgets/Info.plist
         GENERATE_INFOPLIST_FILE: NO
         SWIFT_ENABLE_DEBUG_EXECUTABLE: "NO"
+        MACH_O_TYPE: mh_execute
+        CODE_SIGNING_ALLOWED: "NO"
         DEVELOPMENT_TEAM: ""
         MARKETING_VERSION: 1.0.0
         CURRENT_PROJECT_VERSION: 1
