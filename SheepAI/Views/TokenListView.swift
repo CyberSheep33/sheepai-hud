@@ -4,7 +4,6 @@ struct TokenListView: View {
     @ObservedObject var viewModel: AppViewModel
 
     @State private var selectedTokenName: String = ""
-    @State private var sortOrder = [KeyPathComparator(\Token.name)]
 
     var body: some View {
         VStack(spacing: 0) {
@@ -43,7 +42,9 @@ struct TokenListView: View {
             }
         }
         .onAppear {
-            selectedTokenName = viewModel.selectedTokenName
+            if selectedTokenName.isEmpty {
+                selectedTokenName = viewModel.selectedTokenName
+            }
         }
     }
 
@@ -64,41 +65,38 @@ struct TokenListView: View {
 
     private var tokenContent: some View {
         HStack(alignment: .top, spacing: 0) {
-            // Left: table
-            Table(viewModel.tokens, selection: $selectedTokenName, sortOrder: $sortOrder) {
-                TableColumn("名称", value: \.name) { token in
-                    HStack(spacing: 6) {
-                        Image(systemName: "key.fill")
-                            .font(.caption)
-                            .foregroundColor(token.isActive ? .green : .gray)
+            // Left: token list with selection
+            List(viewModel.tokens, selection: $selectedTokenName) { token in
+                HStack(spacing: 8) {
+                    Image(systemName: "key.fill")
+                        .font(.caption)
+                        .foregroundColor(token.isActive ? .green : .gray)
+                    VStack(alignment: .leading, spacing: 2) {
                         Text(token.name)
                             .fontWeight(.medium)
+                            .lineLimit(1)
+                        HStack(spacing: 8) {
+                            Text(token.isActive ? "活跃" : "停用")
+                                .font(.caption2)
+                                .foregroundColor(token.isActive ? .green : .secondary)
+                            Text(token.usedQuotaUSD.formatted(.currency(code: "USD")))
+                                .font(.caption2)
+                                .foregroundColor(.secondary)
+                                .monospacedDigit()
+                            if !token.group.isEmpty {
+                                Text(token.group)
+                                    .font(.caption2)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(1)
+                            }
+                        }
                     }
                 }
-                .width(min: 100, ideal: 140)
-
-                TableColumn("状态", value: \.status) { token in
-                    Text(token.isActive ? "活跃" : "停用")
-                        .font(.caption)
-                        .foregroundColor(token.isActive ? .green : .secondary)
-                }
-                .width(min: 50, ideal: 60)
-
-                TableColumn("已用 (USD)") { token in
-                    Text(token.usedQuotaUSD.formatted(.currency(code: "USD")))
-                        .font(.caption)
-                        .monospacedDigit()
-                }
-                .width(min: 80, ideal: 100)
-
-                TableColumn("分组", value: \.group) { token in
-                    Text(token.group.isEmpty ? "-" : token.group)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .lineLimit(1)
-                }
-                .width(min: 100, ideal: 160)
+                .padding(.vertical, 2)
+                .tag(token.name)
             }
+            .listStyle(.inset)
+            .frame(minWidth: 280)
             .onChange(of: selectedTokenName) { _, newName in
                 viewModel.setSelectedToken(name: newName)
             }
