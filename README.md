@@ -57,27 +57,20 @@ open SheepAI.xcodeproj
 
 **方法一：从 DerivedData 直接导出（推荐，无需开发者账号）**
 
-构建成功后，运行项目中的 post-build 脚本将 App 并复制到应用程序文件夹：
+在 Xcode 中 `⌘R` 构建成功后，执行：
 
 ```bash
-bash scripts/post-build.sh $(find ~/Library/Developer/Xcode/DerivedData/SheepAI-*/Build/Products/Debug -name "SheepAI.app" -maxdepth 1 | head -1)
-```
-
-或者手动复制：
-
-```bash
+# 修复 Widget 扩展的 NSExtension 注册（Xcode 构建时会覆盖）
 APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData/SheepAI-*/Build/Products/Debug -name "SheepAI.app" -maxdepth 1 | head -1)
-
-# 手动补丁 Widgets 的 NSExtension plist（Xcode 构建时会自动覆盖）
 cp Widgets/Info.plist "$APP_PATH/Contents/PlugIns/Widgets.appex/Contents/Info.plist"
 
 # 复制到应用程序文件夹
 cp -R "$APP_PATH" /Applications/
 ```
 
-> ⚠️ **已知问题**：Xcode 构建 Widgets extension 时会覆盖 `Info.plist`，丢失 `NSExtension` 注册。每次构建后需执行上述补丁步骤。也可以自行在 Xcode 中为 Widgets target 的 Info 添加 `NSExtensionPointIdentifier = com.apple.widgetkit-extension`。
-
 以后从 Spotlight（`⌘空格`）搜 "SheepAI" 或 Launchpad 即可打开。
+
+> ⚠️ **已知问题**：Xcode 构建后会覆盖 Widgets extension 的 `Info.plist`，丢失 `NSExtension` 注册，导致小组件不可用。每次构建后需手动执行上述补丁步骤。
 
 **方法二：Archive 导出（需要 Apple Developer 账号）**
 
