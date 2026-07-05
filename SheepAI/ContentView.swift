@@ -3,14 +3,12 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var viewModel: AppViewModel
 
-    @State private var selectedTab: Tab = .overview
+    @State private var selectedTab: Tab = .settings
 
-    enum Tab: String, CaseIterable, Identifiable {
+    enum Tab: String, CaseIterable {
         case overview = "用户总览"
         case tokens = "令牌列表"
         case settings = "设置"
-
-        var id: String { rawValue }
 
         var systemImage: String {
             switch self {
@@ -23,7 +21,7 @@ struct ContentView: View {
 
     var body: some View {
         HStack(spacing: 0) {
-            // Sidebar
+            // Sidebar with buttons
             VStack(spacing: 0) {
                 Text("SheepAI HUD")
                     .font(.headline)
@@ -35,12 +33,24 @@ struct ContentView: View {
 
                 Divider()
 
-                List(Tab.allCases, selection: $selectedTab) { tab in
-                    Label(tab.rawValue, systemImage: tab.systemImage)
-                        .font(.body)
-                        .padding(.vertical, 6)
+                ForEach(Tab.allCases, id: \.rawValue) { tab in
+                    Button {
+                        selectedTab = tab
+                    } label: {
+                        Label(tab.rawValue, systemImage: tab.systemImage)
+                            .font(.body)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 12)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(
+                                selectedTab == tab
+                                    ? Color.accentColor.opacity(0.15)
+                                    : Color.clear
+                            )
+                            .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
                 }
-                .listStyle(.sidebar)
             }
             .frame(width: 180)
 
