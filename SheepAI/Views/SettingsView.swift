@@ -83,6 +83,8 @@ struct SettingsView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation { showSaved = false }
         }
+        // Auto-refresh after saving credentials
+        Task { await viewModel.refresh() }
     }
 }
 
