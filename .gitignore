@@ -10,3 +10,4 @@ SheepAI.xcodeproj/
 
 # Test data with real credentials — DO NOT COMMIT
 .test/
+DerivedData/
