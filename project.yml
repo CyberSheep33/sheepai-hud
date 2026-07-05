@@ -32,6 +32,7 @@ targets:
         CURRENT_PROJECT_VERSION: 1
     dependencies:
       - target: Widgets
+      - sdk: WidgetKit.framework
 
   Widgets:
     type: app-extension
@@ -43,48 +44,10 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.sheepai.hud.widgets
-        INFOPLIST_FILE: Widgets/Info.plist
-        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: ""
+        GENERATE_INFOPLIST_FILE: YES
         DEVELOPMENT_TEAM: ""
         MARKETING_VERSION: 1.0.0
         CURRENT_PROJECT_VERSION: 1
-    preBuildScripts:
-      - name: "Generate Widgets Info.plist"
-        script: |
-          mkdir -p "${SRCROOT}/Widgets"
-          cat > "${SRCROOT}/Widgets/Info.plist" << 'PLEOF'
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-          <dict>
-              <key>CFBundleDevelopmentRegion</key>
-              <string>$(DEVELOPMENT_LANGUAGE)</string>
-              <key>CFBundleDisplayName</key>
-              <string>SheepAI Widgets</string>
-              <key>CFBundleExecutable</key>
-              <string>$(EXECUTABLE_NAME)</string>
-              <key>CFBundleIdentifier</key>
-              <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-              <key>CFBundleInfoDictionaryVersion</key>
-              <string>6.0</string>
-              <key>CFBundleName</key>
-              <string>$(PRODUCT_NAME)</string>
-              <key>CFBundlePackageType</key>
-              <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
-              <key>CFBundleShortVersionString</key>
-              <string>$(MARKETING_VERSION)</string>
-              <key>CFBundleVersion</key>
-              <string>$(CURRENT_PROJECT_VERSION)</string>
-              <key>LSMinimumSystemVersion</key>
-              <string>14.0</string>
-              <key>NSExtension</key>
-              <dict>
-                  <key>NSExtensionPointIdentifier</key>
-                  <string>com.apple.widgetkit-extension</string>
-              </dict>
-          </dict>
-          </plist>
-          PLEOF
-        basedOnDependencyAnalysis: false
-        outputFiles:
-          - $(SRCROOT)/Widgets/Info.plist
+    dependencies:
+      - sdk: WidgetKit.framework
