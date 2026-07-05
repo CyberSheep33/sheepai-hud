@@ -7,3 +7,6 @@ SheepAI.xcodeproj/
 # Xcode user data
 *.xcuserdata
 *.xcuserstate
+
+# Test data with real credentials — DO NOT COMMIT
+.test/
