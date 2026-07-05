@@ -22,25 +22,42 @@ struct ContentView: View {
     }
 
     var body: some View {
-        NavigationSplitView {
+        HStack(spacing: 0) {
             // Sidebar
-            List(Tab.allCases, selection: $selectedTab) { tab in
-                Label(tab.rawValue, systemImage: tab.systemImage)
-                    .font(.body)
-                    .padding(.vertical, 4)
+            VStack(spacing: 0) {
+                Text("SheepAI HUD")
+                    .font(.headline)
+                    .foregroundColor(.accentColor)
+                    .padding(.top, 20)
+                    .padding(.bottom, 12)
+                    .padding(.horizontal, 16)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Divider()
+
+                List(Tab.allCases, selection: $selectedTab) { tab in
+                    Label(tab.rawValue, systemImage: tab.systemImage)
+                        .font(.body)
+                        .padding(.vertical, 6)
+                }
+                .listStyle(.sidebar)
             }
-            .navigationSplitViewColumnWidth(min: 160, ideal: 180, max: 200)
-            .listStyle(.sidebar)
-        } detail: {
+            .frame(width: 180)
+
+            Divider()
+
             // Content
-            switch selectedTab {
-            case .overview:
-                UserOverviewView(viewModel: viewModel)
-            case .tokens:
-                TokenListView(viewModel: viewModel)
-            case .settings:
-                SettingsView(viewModel: viewModel)
+            Group {
+                switch selectedTab {
+                case .overview:
+                    UserOverviewView(viewModel: viewModel)
+                case .tokens:
+                    TokenListView(viewModel: viewModel)
+                case .settings:
+                    SettingsView(viewModel: viewModel)
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
