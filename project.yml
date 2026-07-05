@@ -43,8 +43,8 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.sheepai.hud.widgets
-        INFOPLIST_FILE: ""
-        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: Widgets/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
         DEVELOPMENT_TEAM: ""
         MARKETING_VERSION: 1.0.0
         CURRENT_PROJECT_VERSION: 1
