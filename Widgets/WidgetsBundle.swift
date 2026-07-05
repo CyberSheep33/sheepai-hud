@@ -1,9 +1,11 @@
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 @main
-struct WidgetsBundle: WidgetBundle {
+struct SheepAIWidgets: WidgetBundle {
     var body: some Widget {
-        // Widgets will be added here
+        UserOverviewWidget()
+        TokenOverviewWidget()
+        TokenMonitorWidget()
     }
 }

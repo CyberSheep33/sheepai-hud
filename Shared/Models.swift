@@ -103,3 +103,53 @@ struct TokenUsage: Codable {
     var usedUSD: Double { Double(totalUsed) / Constants.quotaToUSD }
     var availableUSD: Double { Double(totalAvailable) / Constants.quotaToUSD }
 }
+
+// MARK: - Widget Helper (shared by widget targets)
+
+enum WidgetHelper {
+    static func loadUserInfo() -> UserInfo? {
+        guard let data = UserDefaults(suiteName: Constants.appGroupID)?
+            .data(forKey: Constants.userInfoDataKey)
+        else { return nil }
+        return try? JSONDecoder().decode(UserInfo.self, from: data)
+    }
+
+    static func loadTokens() -> [Token] {
+        guard let data = UserDefaults(suiteName: Constants.appGroupID)?
+            .data(forKey: Constants.tokenListDataKey)
+        else { return [] }
+        return (try? JSONDecoder().decode([Token].self, from: data)) ?? []
+    }
+
+    static func loadSelectedTokenUsage() -> TokenUsage? {
+        guard let data = UserDefaults(suiteName: Constants.appGroupID)?
+            .data(forKey: Constants.tokenUsageDataKey)
+        else { return nil }
+        return try? JSONDecoder().decode(TokenUsage.self, from: data)
+    }
+
+    static func loadSelectedTokenName() -> String {
+        UserDefaults(suiteName: Constants.appGroupID)?
+            .string(forKey: Constants.selectedTokenNameKey) ?? ""
+    }
+
+    static var isConfigured: Bool {
+        let store = UserDefaults(suiteName: Constants.appGroupID)
+        return !(store?.string(forKey: Constants.userIdKey) ?? "").isEmpty &&
+               !(store?.string(forKey: Constants.systemTokenKey) ?? "").isEmpty
+    }
+
+    static var lastRefreshTime: Date? {
+        let interval = UserDefaults(suiteName: Constants.appGroupID)?
+            .double(forKey: Constants.lastRefreshTimeKey) ?? 0
+        return interval > 0 ? Date(timeIntervalSince1970: interval) : nil
+    }
+
+    static func formatUSD(_ quota: Int64) -> String {
+        (Double(quota) / Constants.quotaToUSD).formatted(.currency(code: "USD"))
+    }
+
+    static func formatUSD(_ value: Double) -> String {
+        value.formatted(.currency(code: "USD"))
+    }
+}
