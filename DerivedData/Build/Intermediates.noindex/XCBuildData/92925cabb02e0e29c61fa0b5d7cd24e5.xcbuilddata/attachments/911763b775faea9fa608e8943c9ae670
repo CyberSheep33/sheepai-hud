@@ -1,0 +1,51 @@
+{
+  "" : {
+    "const-values" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets-primary.swiftconstvalues",
+    "dependencies" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets-primary.d",
+    "diagnostics" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets-primary.dia",
+    "emit-module-dependencies" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets-primary-emit-module.dia",
+    "pch" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets-primary.swiftdeps"
+  },
+  "/Users/aaron/Projects/sheepai-hud/Shared/AppGroupStorage.swift" : {
+    "index-unit-output-path" : "/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/AppGroupStorage.o",
+    "llvm-bc" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/AppGroupStorage.bc",
+    "object" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/AppGroupStorage.o"
+  },
+  "/Users/aaron/Projects/sheepai-hud/Shared/Constants.swift" : {
+    "index-unit-output-path" : "/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Constants.o",
+    "llvm-bc" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Constants.bc",
+    "object" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Constants.o"
+  },
+  "/Users/aaron/Projects/sheepai-hud/Shared/Models.swift" : {
+    "index-unit-output-path" : "/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Models.o",
+    "llvm-bc" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Models.bc",
+    "object" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Models.o"
+  },
+  "/Users/aaron/Projects/sheepai-hud/Shared/SheepAPIClient.swift" : {
+    "index-unit-output-path" : "/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/SheepAPIClient.o",
+    "llvm-bc" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/SheepAPIClient.bc",
+    "object" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/SheepAPIClient.o"
+  },
+  "/Users/aaron/Projects/sheepai-hud/Widgets/TokenMonitorWidget.swift" : {
+    "index-unit-output-path" : "/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/TokenMonitorWidget.o",
+    "llvm-bc" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/TokenMonitorWidget.bc",
+    "object" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/TokenMonitorWidget.o"
+  },
+  "/Users/aaron/Projects/sheepai-hud/Widgets/TokenOverviewWidget.swift" : {
+    "index-unit-output-path" : "/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/TokenOverviewWidget.o",
+    "llvm-bc" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/TokenOverviewWidget.bc",
+    "object" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/TokenOverviewWidget.o"
+  },
+  "/Users/aaron/Projects/sheepai-hud/Widgets/UserOverviewWidget.swift" : {
+    "index-unit-output-path" : "/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/UserOverviewWidget.o",
+    "llvm-bc" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/UserOverviewWidget.bc",
+    "object" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/UserOverviewWidget.o"
+  },
+  "/Users/aaron/Projects/sheepai-hud/Widgets/WidgetsBundle.swift" : {
+    "index-unit-output-path" : "/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/WidgetsBundle.o",
+    "llvm-bc" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/WidgetsBundle.bc",
+    "object" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/WidgetsBundle.o"
+  }
+}

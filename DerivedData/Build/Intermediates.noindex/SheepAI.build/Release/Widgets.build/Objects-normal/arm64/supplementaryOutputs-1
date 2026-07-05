@@ -1,0 +1,12 @@
+{
+  "/Users/aaron/Projects/sheepai-hud/Shared/AppGroupStorage.swift" : {
+    "abi-baseline-json" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets.abi.json",
+    "const-values" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets-primary.swiftconstvalues",
+    "dependencies" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets-primary.d",
+    "diagnostics" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets-primary.dia",
+    "objc-header" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets-Swift.h",
+    "swiftdoc" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets.swiftdoc",
+    "swiftmodule" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets.swiftmodule",
+    "swiftsourceinfo" : "/Users/aaron/Projects/sheepai-hud/DerivedData/Build/Intermediates.noindex/SheepAI.build/Release/Widgets.build/Objects-normal/arm64/Widgets.swiftsourceinfo"
+  }
+}
