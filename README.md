@@ -55,6 +55,22 @@ open SheepAI.xcodeproj
 
 ### 导出为独立应用
 
+**方法一：从 DerivedData 直接导出（推荐，无需开发者账号）**
+
+构建成功后，`SheepAI.app` 已经编译好了，直接复制即可：
+
+```bash
+# 找到构建产物
+APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData/SheepAI-*/Build/Products/Debug -name "SheepAI.app" -maxdepth 1 | head -1)
+
+# 复制到应用程序文件夹
+cp -R "$APP_PATH" /Applications/
+```
+
+以后从 Spotlight（`⌘空格`）搜 "SheepAI" 或 Launchpad 即可打开。
+
+**方法二：Archive 导出（需要 Apple Developer 账号）**
+
 1. 在 Xcode 中：菜单栏 **Product → Archive**
 2. 在 Organizer 中：选择 Archive → **Distribute App → Copy App**
 3. 将导出的 `SheepAI.app` 拖到「应用程序」文件夹
