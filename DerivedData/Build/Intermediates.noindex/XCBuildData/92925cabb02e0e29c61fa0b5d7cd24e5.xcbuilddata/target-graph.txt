@@ -1,4 +1,0 @@
-Target dependency graph (2 targets)
-Target 'SheepAI' in project 'SheepAI'
-➜ Explicit dependency on target 'Widgets' in project 'SheepAI'
-Target 'Widgets' in project 'SheepAI' (no dependencies)
