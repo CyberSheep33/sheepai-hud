@@ -9,6 +9,9 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.9"
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGNING_REQUIRED: "NO"
+    CODE_SIGNING_ALLOWED: "NO"
 
 targets:
   SheepAI:
@@ -26,35 +29,8 @@ targets:
         DEVELOPMENT_TEAM: ""
         MARKETING_VERSION: 1.0.0
         CURRENT_PROJECT_VERSION: 1
-    entitlements:
-      path: SheepAI.entitlements
-      properties:
-        com.apple.security.app-sandbox: true
-        com.apple.security.network.client: true
-        com.apple.security.application-groups:
-          - group.com.sheepai.hud
     dependencies:
       - target: Widgets
-    preBuildScripts:
-      - name: "Generate Entitlements"
-        script: |
-          cat > "${SRCROOT}/SheepAI.entitlements" << 'ENTEOF'
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-          <dict>
-              <key>com.apple.security.app-sandbox</key>
-              <true/>
-              <key>com.apple.security.network.client</key>
-              <true/>
-              <key>com.apple.security.application-groups</key>
-              <array>
-                  <string>group.com.sheepai.hud</string>
-              </array>
-          </dict>
-          </plist>
-          ENTEOF
-        basedOnDependencyAnalysis: false
 
   Widgets:
     type: app-extension
@@ -66,63 +42,8 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.sheepai.hud.widgets
-        INFOPLIST_FILE: Widgets/Info.plist
-        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: ""
+        GENERATE_INFOPLIST_FILE: YES
         DEVELOPMENT_TEAM: ""
         MARKETING_VERSION: 1.0.0
         CURRENT_PROJECT_VERSION: 1
-    entitlements:
-      path: Widgets.entitlements
-      properties:
-        com.apple.security.application-groups:
-          - group.com.sheepai.hud
-    preBuildScripts:
-      - name: "Generate Entitlements & Info.plist"
-        script: |
-          mkdir -p "${SRCROOT}/Widgets"
-          cat > "${SRCROOT}/Widgets.entitlements" << 'ENTEOF'
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-          <dict>
-              <key>com.apple.security.application-groups</key>
-              <array>
-                  <string>group.com.sheepai.hud</string>
-              </array>
-          </dict>
-          </plist>
-          ENTEOF
-          cat > "${SRCROOT}/Widgets/Info.plist" << 'PLEOF'
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-          <dict>
-              <key>CFBundleDevelopmentRegion</key>
-              <string>$(DEVELOPMENT_LANGUAGE)</string>
-              <key>CFBundleDisplayName</key>
-              <string>SheepAI Widgets</string>
-              <key>CFBundleExecutable</key>
-              <string>$(EXECUTABLE_NAME)</string>
-              <key>CFBundleIdentifier</key>
-              <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-              <key>CFBundleInfoDictionaryVersion</key>
-              <string>6.0</string>
-              <key>CFBundleName</key>
-              <string>$(PRODUCT_NAME)</string>
-              <key>CFBundlePackageType</key>
-              <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
-              <key>CFBundleShortVersionString</key>
-              <string>$(MARKETING_VERSION)</string>
-              <key>CFBundleVersion</key>
-              <string>$(CURRENT_PROJECT_VERSION)</string>
-              <key>LSMinimumSystemVersion</key>
-              <string>14.0</string>
-              <key>NSExtension</key>
-              <dict>
-                  <key>NSExtensionPointIdentifier</key>
-                  <string>com.apple.widgetkit-extension</string>
-              </dict>
-          </dict>
-          </plist>
-          PLEOF
-        basedOnDependencyAnalysis: false

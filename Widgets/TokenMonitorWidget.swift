@@ -55,7 +55,7 @@ struct TokenMonitorWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TokenMonitorProvider()) { entry in
             TokenMonitorWidgetView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .containerBackground(.background, for: .widget)
         }
         .configurationDisplayName("令牌监视")
         .description("监视指定令牌的用量，在 App 的令牌列表中选择要监视的令牌")
@@ -101,7 +101,7 @@ struct TokenMonitorWidgetView: View {
                 .foregroundColor(.secondary)
             Text("在 App 令牌列表中点击令牌即可选择")
                 .font(.caption2)
-                .foregroundColor(.tertiary)
+                .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
         }
     }

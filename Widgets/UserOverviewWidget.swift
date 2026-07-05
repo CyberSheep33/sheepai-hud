@@ -43,7 +43,7 @@ struct UserOverviewWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: UserOverviewProvider()) { entry in
             UserOverviewWidgetView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .containerBackground(.background, for: .widget)
         }
         .configurationDisplayName("用户总览")
         .description("显示小羊AI用户信息、余额和用量概览")

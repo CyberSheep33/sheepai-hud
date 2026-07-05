@@ -46,7 +46,7 @@ struct TokenOverviewWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TokenOverviewProvider()) { entry in
             TokenOverviewWidgetView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .containerBackground(.background, for: .widget)
         }
         .configurationDisplayName("令牌总览")
         .description("显示令牌数量、活跃状态和总用量")
